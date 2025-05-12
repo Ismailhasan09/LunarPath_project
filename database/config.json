@@ -1,0 +1,21 @@
+{
+  "params":
+  {
+    "local_server": "True",
+    "local_uri": "mysql+pymysql://root:@localhost:3308/lunar",
+    "prod_uri": "mysql+pymysql://root:@localhost:3308/lunar",
+    "fb_url": "https://facebook.com/lunar",
+    "tw_url" : "https://twitter.com/lunar",
+    "gt_url": "https://github.com/lunar",
+    "gmail-user": "ismailhasan0909@gmail.com",
+    "gmail-password": "lsmq nhqw uesa yzwl",
+    "num_of_posts":4,
+    "admin_user": "ismailhasan0909@gmail.com",
+    "admin_password": "subscribenow"
+
+
+  }
+
+
+
+}

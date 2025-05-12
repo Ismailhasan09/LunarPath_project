@@ -1,0 +1,54 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+  }
+
+  .login-box {
+    width: 100%;
+    max-width: 350px;
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-control {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+</style>
+
+<div class="login-container">
+  <div class="login-box text-center">
+    <form class="form-signin" action="/dashboard" method="post">
+      {% if fname %}
+      <img class="mb-4" src="{{ url_for('static', filename=fname) }}" alt="Logo" width="60" height="60">
+      {% endif %}
+      <h2 class="h5 mb-3">Admin Login</h2>
+
+      <div class="form-group mb-3">
+        <input type="email" name="uname" class="form-control" placeholder="Email" required autofocus>
+      </div>
+
+      <div class="form-group mb-3">
+        <input type="password" name="pass" class="form-control" placeholder="Password" required>
+      </div>
+
+      <button class="btn btn-primary btn-block" type="submit">Sign In</button>
+
+      {% if params %}
+      <p class="mt-4 text-muted small">© {{ params['blog_name'] }} 2017–2025</p>
+      {% endif %}
+    </form>
+  </div>
+</div>
+{% endblock %}

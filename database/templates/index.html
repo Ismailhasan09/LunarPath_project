@@ -1,0 +1,80 @@
+{% extends "layout.html" %}
+{% block body %}
+        <!-- Page Header-->
+        <header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>LunarPath Edu.</h1>
+                            <span class="subheading">Education will make you free</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+
+
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <h2 class="post-title">Welcome to LunarPath — Start Your Learning Journey</h2>
+                        <h3 class="post-subtitle">Knowledge lights up the darkness</h3>
+                        <p class="post-meta">
+                            Posted by LunarPath Team on May 1, 2025
+                        </p>
+                    </div>
+
+
+
+
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+
+                 {% for post in posts %}
+                     <li><a href="/post/{{post.slug}}">{{post.title}}</a></li>
+              
+                     <div class="post-preview">
+                        <a href="post.html"><h2 class="post-title">{{post.content[0:13]}}...</h2></a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on September 18, 2023
+                        </p>
+                    </div>
+                    {% endfor %}
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <h2 class="post-title">Discover the Future of Science</h2>
+                        <h3 class="post-subtitle">Innovation begins with imagination</h3>
+                        <p class="post-meta">
+                            Posted by LunarPath Team on April 15, 2025
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Post preview-->
+                    <div class="post-preview">
+                        <h2 class="post-title">Keep Moving Forward</h2>
+                        <h3 class="post-subtitle">Exploration is our gift to the next generation</h3>
+                        <p class="post-meta">
+                            Posted by LunarPath Team on March 30, 2025
+                        </p>
+                    </div>
+                    <!-- Divider-->
+                    <hr class="my-4" />
+                    <!-- Pager-->
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>
+                </div>
+            </div>
+        </div>
+        
+        {% endblock %}

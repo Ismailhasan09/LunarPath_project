@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{{ url_for('static', filename='assets/img/home-bg.jpg') }}')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>LunarPath Edu.</h1>
+                    <span class="subheading">Education will make you free</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        <div class="col-md-10 col-lg-8 col-xl-7">
+            {% if 'user' in session %}
+                <!-- User is logged in, show posts-->
+                <h2>Welcome, {{ session['user'] }}! You are logged in.</h2>
+
+                <div class="post-preview">
+                    {% for post in posts %}
+                        <a href="/post/{{ post.slug }}">
+                            <h2 class="post-title">{{ post.title }}</h2>
+                        </a>
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on September 24, 2023
+                        </p>
+                        <hr class="my-4" />
+                    {% endfor %}
+                </div>
+            {% else %}
+                <!-- User is not logged in, show login form-->
+                <h3>Please log in to view the content</h3>
+                <form action="/dashboard" method="POST">
+                    <div class="mb-3">
+                        <label for="uname" class="form-label">Username:</label>
+                        <input type="text" class="form-control" id="uname" name="uname" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="pass" class="form-label">Password:</label>
+                        <input type="password" class="form-control" id="pass" name="pass" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                </form>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
